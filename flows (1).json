@@ -1,0 +1,316 @@
+[
+    {
+        "id": "a7f3042b753876db",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4dd7d3edc5c0c9c5",
+        "type": "mqtt in",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "topic": "sexta/braba/top",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "322da99b3c3c6c29",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "194171a0e3121fc1",
+                "600e900267ed8bd7"
+            ]
+        ]
+    },
+    {
+        "id": "128fbb0e7a52e69d",
+        "type": "change",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperatura",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "2f03cfe415c56a12"
+            ]
+        ]
+    },
+    {
+        "id": "194171a0e3121fc1",
+        "type": "json",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "128fbb0e7a52e69d",
+                "a96bdc726a74535b",
+                "20afb1c6086dd60b"
+            ]
+        ]
+    },
+    {
+        "id": "f48461298e8b450c",
+        "type": "inject",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"temp\":22}",
+        "payloadType": "json",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "85209ec0d75c5fc4"
+            ]
+        ]
+    },
+    {
+        "id": "85209ec0d75c5fc4",
+        "type": "mqtt out",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "topic": "sexta/braba/top",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "322da99b3c3c6c29",
+        "x": 360,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "36eba6739440c5aa",
+        "type": "serial in",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "serial": "6a9284fab4a417c2",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "85209ec0d75c5fc4"
+            ]
+        ]
+    },
+    {
+        "id": "2f03cfe415c56a12",
+        "type": "ui_gauge",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "group": "059f062e5271b491",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "600e900267ed8bd7",
+        "type": "ui_text",
+        "z": "a7f3042b753876db",
+        "group": "059f062e5271b491",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 370,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a96bdc726a74535b",
+        "type": "debug",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d04a843bf5af83ee",
+        "type": "ui_gauge",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "group": "059f062e5271b491",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 680,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "20afb1c6086dd60b",
+        "type": "change",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.umidade",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "d04a843bf5af83ee"
+            ]
+        ]
+    },
+    {
+        "id": "322da99b3c3c6c29",
+        "type": "mqtt-broker",
+        "name": "broker.hivemq.com",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6a9284fab4a417c2",
+        "type": "serial-port",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "059f062e5271b491",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "52adc292d6d1157f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "52adc292d6d1157f",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
