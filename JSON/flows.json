@@ -39,7 +39,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "payload.TagId",
+                "to": "payload.tagid",
                 "tot": "msg"
             }
         ],
@@ -69,7 +69,7 @@
         "wires": [
             [
                 "128fbb0e7a52e69d",
-                "a96bdc726a74535b"
+                "b32e95b667bbc601"
             ]
         ]
     },
@@ -92,7 +92,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"TagId\":\"22\"}",
+        "payload": "{\"tagid\":\"22\"}",
         "payloadType": "json",
         "x": 90,
         "y": 320,
@@ -122,20 +122,6 @@
         "wires": []
     },
     {
-        "id": "36eba6739440c5aa",
-        "type": "serial in",
-        "z": "a7f3042b753876db",
-        "name": "",
-        "serial": "6a9284fab4a417c2",
-        "x": 70,
-        "y": 240,
-        "wires": [
-            [
-                "85209ec0d75c5fc4"
-            ]
-        ]
-    },
-    {
         "id": "600e900267ed8bd7",
         "type": "ui_text",
         "z": "a7f3042b753876db",
@@ -150,23 +136,6 @@
         "className": "",
         "x": 290,
         "y": 240,
-        "wires": []
-    },
-    {
-        "id": "a96bdc726a74535b",
-        "type": "debug",
-        "z": "a7f3042b753876db",
-        "name": "",
-        "active": true,
-        "tosidebar": false,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 470,
-        "y": 180,
         "wires": []
     },
     {
@@ -316,13 +285,118 @@
         "wires": []
     },
     {
+        "id": "36eba6739440c5aa",
+        "type": "serial in",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "serial": "6a9284fab4a417c2",
+        "x": 70,
+        "y": 240,
+        "wires": [
+            [
+                "85209ec0d75c5fc4"
+            ]
+        ]
+    },
+    {
         "id": "cadb46caa812b8d1",
         "type": "serial out",
         "z": "a7f3042b753876db",
         "name": "",
         "serial": "6a9284fab4a417c2",
-        "x": 450,
+        "x": 470,
         "y": 760,
+        "wires": []
+    },
+    {
+        "id": "309f8472fa1d04a3",
+        "type": "serial in",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "serial": "6a9284fab4a417c2",
+        "x": 90,
+        "y": 880,
+        "wires": [
+            [
+                "b3cf930498c27d8a"
+            ]
+        ]
+    },
+    {
+        "id": "b3cf930498c27d8a",
+        "type": "json",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 880,
+        "wires": [
+            [
+                "2d936efe809fce2d"
+            ]
+        ]
+    },
+    {
+        "id": "2d936efe809fce2d",
+        "type": "change",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tagid",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 880,
+        "wires": [
+            [
+                "10e49b167f3c48ec"
+            ]
+        ]
+    },
+    {
+        "id": "10e49b167f3c48ec",
+        "type": "ui_text",
+        "z": "a7f3042b753876db",
+        "group": "059f062e5271b491",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 970,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "b32e95b667bbc601",
+        "type": "debug",
+        "z": "a7f3042b753876db",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 200,
         "wires": []
     },
     {
@@ -352,6 +426,17 @@
         "sessionExpiry": ""
     },
     {
+        "id": "059f062e5271b491",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "52adc292d6d1157f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "6a9284fab4a417c2",
         "type": "serial-port",
         "serialport": "COM3",
@@ -369,17 +454,6 @@
         "out": "char",
         "addchar": "",
         "responsetimeout": "10000"
-    },
-    {
-        "id": "059f062e5271b491",
-        "type": "ui_group",
-        "name": "Default",
-        "tab": "52adc292d6d1157f",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
     },
     {
         "id": "52adc292d6d1157f",
