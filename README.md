@@ -1,8 +1,8 @@
 # IA-CHATBOT-FIAP
 
 # 2-TDSG
-#JOÃO ARMANDO
-#JOÃO PEDRO NARDI
+# JOÃO ARMANDO
+# JOÃO PEDRO NARDI
 
 
 #https://arnaldojr.github.io/IoT/aulas/lab6/ (EXERCICIO)
